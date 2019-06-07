@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js入门程序02</title>
+    <script src="/js/vue/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--添加a标签，在a标签的href属性使用v-bind来绑定vm定义的数据-->
+    <a v-bind:href="url">
+        <!--{{name}}用v-text替代，解决闪烁问题使用-->
+        <span v-text="name"></span><br>
+    </a>
+    <input type="text" v-model="num1">+
+    <input type="text" v-model="num2">=
+    <!--{{result}}用v-text替代，解决闪烁问题使用-->
+    <span v-text="result"></span>
+    <!--会用v-on：click来触发vm中定义的方法-->
+    <button v-on:click="calculate">Calculate</button>
+</div>
+</body>
+<script>
+    //实例化vue对象
+    //vm: 叫做MVVM中的ViewModel
+    var VM = new Vue({
+        el:"#app",//表示当前vue对象接管app的div区域
+        data:{
+            name: "Coder",//相当于MVVM中的Model这个角色
+            num1: 0,
+            num2:0,
+            result:0, //计算结果数据
+            url: "http://www.baidu.com"
+        },
+        //定义vm中的方法
+        methods:{
+            //定义计算事件触发的方法
+            calculate:function () {
+                this.result=Number.parseInt(this.num1)+Number.parseInt(this.num2)
+            }
+        }
+    });
+</script>
+</html>

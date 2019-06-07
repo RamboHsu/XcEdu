@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js入门程序04_v-for</title>
+    <script src="/js/vue/vue.min.js"></script>
+</head>
+<body>
+<div id="app1">
+    <ul>
+        <!--
+        list是一个数组
+        第一个参数是item，代表用于迭代的元素
+        第二个参数是index，是索引值
+        -->
+        <li v-for="(item,index) in list">{{index}}------{{item}}</li>
+    </ul>
+</div>
+
+<div id="app2">
+    <ul>
+        <!--
+        user是一个js对象
+        第一个参数是value，代表js对象中的属性值
+        第二个参数是key，代表js对象中的属性名
+        -->
+        <li v-for="(value,key) in user">{{key}}------{{value}}</li>
+
+    </ul>
+</div>
+
+<div id="app3">
+    <ul>
+        <!--
+            userList 是一个js对象
+            第一个参数item 代表js对象对象集合中对象
+            第二个参数index 代表js对象集合中的下标值
+        -->
+        <!-- 增加 :key属性，并制定集合中区分数据的唯一性属性 -->
+        <li v-for="(item,index) in userList" :key="item.user.name">{{index}}----{{item.user.name}}----{{item.user.age}}</li>
+    </ul>
+</div>
+</body>
+<script>
+    //实例化vue对象
+    //vm: 叫做MVVM中的ViewModel
+    var VM = new Vue({
+        el: "#app1",//表示当前vue对象接管app的div区域
+        data: {
+            /*Define a list*/
+            list: [1, 2, 3, 4, 5]
+        }
+    });
+</script>
+<script>
+    //实例化vue对象
+    //vm: 叫做MVVM中的ViewModel
+    var VM = new Vue({
+        el: "#app2",//表示当前vue对象接管app的div区域
+        data: {
+            /*Define a js Object*/
+            user: {
+                name: "Jock",
+                age: 10
+            }
+        }
+    });
+</script>
+<script>
+    //实例化vue对象
+    //vm: 叫做MVVM中的ViewModel
+    var VM = new Vue({
+        el: "#app3",
+        data: {
+            userList: [
+                {user: {name: "Lily", age: 11}},
+                {user: {name: "Lucy", age: 12}}
+            ]
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js入门程序03_v-if</title>
+    <script src="/js/vue/vue.min.js"></script>
+</head>
+<body>
+<div id="app1">
+    <div v-if="isShow">Success</div>
+    <div v-else>Failure</div>
+</div>
+
+<div id="app2">
+    <div v-if="type==='A'">A</div>
+    <div v-else-if="type==='B'">B</div>
+    <div v-else>C</div>
+</div>
+</body>
+<script>
+    //实例化vue对象
+    //vm: 叫做MVVM中的ViewModel
+    var VM = new Vue({
+        el:"#app1",//表示当前vue对象接管app的div区域
+        data:{
+            isShow: true //vm定义的数据类型
+        }
+    });
+</script>
+<script>
+    //实例化vue对象
+    //vm: 叫做MVVM中的ViewModel
+    var VM = new Vue({
+        el:"#app2",//表示当前vue对象接管app的div区域
+        data:{
+            type: "e" //vm定义的数据类型
+        }
+    });
+</script>
+</html>

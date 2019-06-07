@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js入门程序05_v-for&v-if</title>
+    <script src="/js/vue/vue.min.js"></script>
+</head>
+<body>
+    <!--
+    对于v-for和v-if的综合使用并处于同一节点，v-for 的优先级比 v-if 更高，
+    这意味着 v-if 将分别重复运行于每个 v-for 循环中。
+    当你想为仅有的一些项渲染节点时，这种优先级的机制会十分有用
+    -->
+<div id="app">
+    <ul>
+        <!--
+        userList是一个js对象
+        第一个参数是item，代表js对象对象集合中对象
+        第二个参数是index，代表js对象集合中的下标值
+        -->
+        <li v-for="(item,index) in userList" :key="item.user.name" v-if="item.user.name=='Lily'">
+            {{index}}---{{item.user.uname}}---{{item.user.age}}
+        </li>
+    </ul>
+</div>
+
+</body>
+<script>
+    //实例化vue对象
+    //vm: 叫做MVVM中的ViewModel
+    var VM = new Vue({
+        el: "#app",//表示当前vue对象接管app的div区域
+        data: {
+            /*Define a js Object*/
+            userList: [
+                {user:{name:"Lily",age:12}},
+                {user:{name:"Lucy",age:11}}
+            ]
+        }
+    });
+</script>
+</html>

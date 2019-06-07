@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js入门程序02</title>
+</head>
+<body>
+<div id="app">
+    <!--添加a标签，在a标签的href属性使用v-bind来绑定vm定义的数据-->
+    <a v-bind:href="url">
+        <!--{{name}}用v-text替代，解决闪烁问题使用-->
+        <span v-text="name"></span><br>
+    </a>
+    <input type="text" v-model="num1">+
+    <input type="text" v-model="num2">=
+    <!--{{result}}用v-text替代，解决闪烁问题使用-->
+    <span v-text="result"></span>
+    <!--会用v-on：click来触发vm中定义的方法-->
+    <button v-on:click="calculate">Calculate</button>
+</div>
+</body>
+<!--------------------------引入build.js------------------------------------->
+<script src="build.js"></script>
+<!--------------------------引入build.js------------------------------------->
+</html>

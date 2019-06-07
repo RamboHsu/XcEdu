@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js入门程序01</title>
+    <script src="/js/vue/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--在vue接管区域中使用系统指令呈现数据
+        这些指令就相当于MVVM中的view这个角色-->
+    {{name}}
+</div>
+
+</body>
+<script>
+    //实例化vue对象
+    //vm: 叫做MVVM中的View Model
+    var VM=new Vue({
+        el:"#app",//表示当前vue对象接管app的div区域
+        data:{
+            name:"Rambo"//相当于MVVM中Model这个角色
+        }
+    });
+</script>
+</html>
